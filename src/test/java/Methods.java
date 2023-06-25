@@ -10,6 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
+import java.util.Random;
 
 public class Methods {
     protected static WebDriver driver;
@@ -47,7 +48,50 @@ public class Methods {
         element.click();
         element.sendKeys(txt);
     }
+    public static void SendKeysWithoutEnter(String xp, String  txt) throws InterruptedException {
+        WebElement element = driver.findElement(By.xpath(xp));
+        waitUntil(xp);
+        element.sendKeys(txt);
+    }
+    public static String getTXT(String xp){
+        WebElement element = driver.findElement(By.xpath(xp));
+        String res = element.getText();
+        System.out.println(res);
+        return res;
+    }
+    public static String randomEmail(){
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
 
+        String generatedString = random.ints(leftLimit, rightLimit + 1)
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+        String dom = "@gmail.com";
+        String randomEmail = generatedString+dom;
+        return randomEmail;
+    }
+
+    public static String randomName(){
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+
+        String generatedString = random.ints(leftLimit, rightLimit + 1)
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+        String randomEmail = generatedString;
+        return randomEmail;
+    }
+
+    public static int RandomPhone(){
+        int randomNum = (int)(Math.random() * 101);
+        return randomNum;
+    }
     @AfterClass(alwaysRun = true)
     public static void CloseBrauser(){
 
