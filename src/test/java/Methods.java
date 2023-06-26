@@ -95,6 +95,6 @@ public class Methods {
     @AfterClass(alwaysRun = true)
     public static void CloseBrauser(){
 
-//        driver.quit();
+        driver.quit();
     }
 }
