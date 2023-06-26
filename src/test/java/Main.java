@@ -21,13 +21,13 @@ public class Main extends Methods{
     ClickButton("/html/body/div[2]/header/div[2]/div/div[5]/div/div/div/ul/li[2]");
     SendKeys("/html/body/div[2]/header/div[2]/div/div[5]/div/div/div/div/div[2]/form/div[1]/input", "Имя");
 //    Thread.sleep(3000);//затормози на столько секунд
-    WaitLoadPage(5000);
+
 
     SendKeys("//*[@id=\"auth-popup\"]/div/div/div/div[2]/form/div[2]/input", "test@gmail.com");
     SendKeys("//*[@id=\"auth-popup\"]/div/div/div/div[2]/form/div[3]/input", "0501234567");
     SendKeys("//*[@id=\"auth-popup\"]/div/div/div/div[2]/form/div[4]/input", "123456");
     SendKeys("//*[@id=\"auth-popup\"]/div/div/div/div[2]/form/div[5]/input", "123456");
-
+    WaitLoadPage(3000);
     ClickButton("//*[@id=\"auth-popup\"]/div/div/div/div[2]/form/button");
 }
 }
